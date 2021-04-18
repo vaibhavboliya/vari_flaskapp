@@ -1,0 +1,50 @@
+{% extends 'layout.html' %}
+
+{% block body %}
+
+<style>
+  img{
+    display: flex;
+  height: 300px;
+   width: auto;
+   justify-content:center ;
+  }
+</style>
+
+    <h1 class="bg-warning">Upload plant image</h1>
+<br>
+    <hr>
+  <form method="post" enctype="multipart/form-data" style="display: flex; align-items: center;flex-direction: column; justify-content: center;">
+    <div class="form-group">
+
+      <input type="file" class="form-control" name="file1">
+      
+    </div>
+    <input  class="btn btn-primary" type="submit">
+    <br>
+  </form>
+  <p></p>
+  <script>
+    $("input").change(function(e) {
+      $("img").remove()
+
+
+for (var i = 0; i < e.originalEvent.srcElement.files.length; i++) {
+    
+    var file = e.originalEvent.srcElement.files[i];
+    
+    var img = document.createElement("img");
+    var reader = new FileReader();
+    reader.onloadend = function() {
+         img.src = reader.result;
+         
+         
+    }
+    reader.readAsDataURL(file);
+    $("form").after(img);
+    
+}
+
+});
+  </script>
+  {% endblock %}

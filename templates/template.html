@@ -1,0 +1,13 @@
+{% extends 'layout.html' %}
+
+{% block body %}
+<h1>RESULT </h1>
+  <a class="btn btn-success" href="/dashboard"> Dashboard</a>
+  <hr>
+<div>
+    <img src="/static/upload/{{input}}" width="400px" height="400px">
+    <img src="/static/variresult/{{result}}" width="600px" height="600px">
+</div>
+    <!-- <img src="{{ input}}" width="600px" height="600px">
+<img src="{{ result}}" width="600px" height="600px"> -->
+{% endblock %}
